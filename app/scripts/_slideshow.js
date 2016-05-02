@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import _ from 'jquery';
 
 const defaultconfig = {
   positioning: 'stacked'
