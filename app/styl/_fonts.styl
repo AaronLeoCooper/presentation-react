@@ -1,0 +1,69 @@
+/**
+ * Sans Serif
+ */
+@font-face
+  font-family 'Hind-Light'
+  src url(../fonts/Hind/Hind-Light.ttf)
+
+@font-face
+  font-family 'Hind-Regular'
+  src url(../fonts/Hind/Hind-Regular.ttf)
+
+@font-face
+  font-family 'Hind-Semibold'
+  src url(../fonts/Hind/Hind-Semibold.ttf)
+
+@font-face
+  font-family 'Hind-Bold'
+  src url(../fonts/Hind/Hind-Bold.ttf)
+
+sans-serif($weight = 400)
+  if $weight == 700
+    font-family 'Hind-Bold'
+
+    strong
+      font-weight 700
+  else if $weight == 600
+    font-family 'Hind-Semibold'
+
+    strong
+      font-family 'Hind-Bold'
+  else if $weight == 300
+    font-family 'Hind-Light'
+
+    strong
+      font-family 'Hind-Semibold'
+
+/**
+ * Serif
+ */
+@font-face
+  font-family 'NotoSerif-Regular'
+  src url(../fonts/Noto_Serif/NotoSerif-Regular.ttf)
+
+@font-face
+  font-family 'NotoSerif-Bold'
+  src url(../fonts/Noto_Serif/NotoSerif-Bold.ttf)
+
+serif($weight = 400)
+  if $weight == 700
+    font-family 'NotoSerif-Bold'
+  else
+    font-family 'NotoSerif-Regular'
+
+    strong
+      font-family 'NotoSerif-Bold'
+
+/**
+ * Body
+ */
+@font-face
+  font-family 'NixieOne-Regular'
+  src url(../fonts/Nixie_One/NixieOne-Regular.ttf)
+
+body($weight = 400)
+  font-family 'NixieOne-Regular'
+  font-weight $weight
+
+  strong
+    font-weight 700

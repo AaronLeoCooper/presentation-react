@@ -1,0 +1,20 @@
+extends partials/layout.jade
+
+block variables
+	-
+		var title = "2359 Presentation";
+
+block body
+
+	// main-cont - rotates view
+	#main-cont
+
+		// main - pans view
+		#main
+
+			include partials/slides.jade
+
+	// popovers - fixed element, relative to window
+	#popovers
+
+		include partials/popovers.jade

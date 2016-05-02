@@ -1,0 +1,343 @@
+@require '_fonts'
+@require '_variables'
+
+/**
+ * Resets
+ */
+
+*
+  box-sizing border-box
+  color inherit
+  border 0
+  outline 0
+  margin 0
+  padding 0
+  font-size 30px
+  text-decoration none
+  body()
+  line-height 160%
+
+
+
+/**
+ * Base
+ */
+
+html
+  overflow hidden
+  height 100%
+  width 100%
+  transform-origin 0 0
+
+body
+  width 100%
+  height 100%
+  color $body-colour
+
+#main-cont
+  width 100%
+  height 100%
+  color $body-colour
+  transform rotate(0deg)
+  transform-origin $margin-offset $margin-offset
+  transition transform 2s $easeInOut
+
+#main
+  bg-body()
+  height 8500px
+  width 7000px
+  transform translate(0, 0) scale(1) rotate(0deg)
+  transition transform 2s $easeInOut, background 2s ease
+
+  &:before
+    content ''
+    position absolute
+    background url(/images/noise.png)
+    top 0
+    left 0
+    right 0
+    bottom 0
+    z-index 0
+
+.slide
+  position absolute
+  width 800px
+  height 600px
+  padding 20px
+  background-color $paper-bg
+  background-image url(/images/noise.png)
+  box-shadow 0 4px 10px 0 rgba(0, 0, 0, .4), inset 0 0 50px rgba(0, 0, 0, .1)
+  border-radius 3px
+  margin $margin-offset
+  color $paper-text
+  transform-origin 0 0
+
+  ul
+    & > li
+      border-left solid .25rem rgba($paper-text, .3)
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  sans-serif(300)
+  margin 0
+
+h1
+  font-size 2rem
+  line-height 200%
+
+h2
+  font-size 1.8rem
+  position relative
+  margin-bottom 30px
+
+  &:after
+    content ''
+    position absolute
+    top 100%
+    height 2px
+    left 0
+    width 100px
+    background $paper-text
+    opacity .3
+
+h3
+  font-size 1.5rem
+
+h4
+  font-size 1.3rem
+
+.h1
+  @extend h1
+
+.h2
+  @extend h2
+
+.h3
+  @extend h3
+
+.h4
+  @extend h4
+
+.h5
+  @extend h5
+
+.h6
+  @extend h6
+
+em
+  font-family inherit
+  font-weight inherit
+
+.icon-bg
+  position absolute
+  right 40px
+  top 20px
+  z-index 0
+  font-size 4rem
+
+  &.fa
+    opacity .2
+    text-shadow 2px 2px 0 rgba(255, 255, 255, 1), -2px -2px 0 rgba(0, 0, 0, 1)
+
+img.icon-bg
+  @extend .icon-bg
+  max-height 6rem
+
+.box
+  position relative
+  clearfix()
+  z-index 10
+
+  &.box-spaced
+    margin-top 30px
+
+  &.box-bottom
+    position absolute
+    bottom 20px
+    left 15px
+    right 15px
+    height 100px
+    text-align center
+
+    img
+      max-height 100%
+      margin 0 15px
+
+  &.flex
+    display flex
+    flex-direction row
+    align-items center
+
+    > .flex-child
+      flex 1
+      text-align center
+
+.svg-path
+  position absolute
+  z-index 0
+  filter drop-shadow(-2px -2px 0 rgba(0, 0, 0, .3))
+
+path
+  stroke-width 20px
+  stroke-dasharray 50px, 40px
+  opacity .3
+
+ul,
+ol
+  display block
+  list-style none
+
+ul
+  & > li
+    padding 8px 0
+    padding-left .5rem
+    margin-bottom 6px
+    border-left solid 6px rgba(255, 255, 255, .3)
+
+em
+  font-style italic
+
+for zindex in 0...11
+  .{'z-' + zindex}
+    z-index zindex
+
+#popovers
+  position fixed
+  top 0
+  left 0
+  right 0
+
+  .popover
+    position absolute
+    bottom 100%
+    left 0
+    right 0
+    width 800px
+    max-width 100%
+    // max-height 600px
+    box-shadow 0 0 0 0 rgba(0, 0, 0, 0)
+    transform translate(0, 0)
+    transition transform .4s, box-shadow .4s
+    margin 0 auto
+    padding 25px
+    background url(/images/retina_wood.png) repeat center center
+    overflow hidden
+    color $paper-text
+
+    h4
+      margin-top -15px
+
+    img
+      display block
+      max-width 100%
+      max-height 550px
+      margin 0 auto
+      box-shadow 0 2px 5px 0 rgba(0, 0, 0, .3)
+      transform rotate(-.5deg)
+
+    &.displaying
+      box-shadow 0 5px 17px 0 rgba(0, 0, 0, .5)
+      transform translate(0, 100%)
+
+
+
+/**
+ * Layout
+ */
+
+#intro
+  position absolute
+  top 50px
+  left 50px
+  width 800px
+  height 600px
+
+  .icon-bg
+    top 100px
+    font-size 11rem
+
+// SVG path containers
+#svg1
+  top 500px
+  left 220px
+
+#svg2
+  top 3970px
+  left 1160px
+  transform rotate(-4deg)
+
+#svg3
+  top 5100px
+  left 2500px
+
+// Part 1
+#slide1
+  top 1100px
+  left 2000px
+
+#slide2
+  top 1800px
+  left 2600px
+
+#slide3
+  top 2650px
+  left 2700px
+
+#slide4
+  top 3330px
+  left 2700px
+
+// Part 2
+#slide5
+  top 5000px
+  left 1000px
+
+#slide6
+  top 5200px
+  left 1800px
+
+#slide7
+  top 5500px
+  left 2500px
+
+#slide8
+  top 6080px
+  left 2000px
+
+#slide9
+  top 5000px
+  left 5000px
+
+#end
+  position absolute
+  top 6500px
+  left 5000px
+  width 800px
+  height 600px
+  padding-left 50px
+
+  .h1
+    body(400)
+    line-height 80%
+
+    &:not(:first-of-type)
+      margin 15px 0
+
+    &:last-of-type
+      margin-bottom 30px
+
+    strong
+      font-weight 700
+      font-family inherit
+
+  .h6
+    font-size 80%
+    margin 0
+
+  .icon-bg
+    top 270px
+    font-size 7rem

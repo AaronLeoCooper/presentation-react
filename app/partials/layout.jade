@@ -1,0 +1,15 @@
+block variables
+
+doctype html
+html(lang="en")
+
+	include head.jade
+
+	body
+
+		//- Page fills this block
+		block body
+
+		// App config settings and some dynamic JS inserts
+		script(type="text/javascript" src="vendor/vendor.js" charSet="UTF-8")
+		script(type="text/javascript" src="js/app.js" charSet="UTF-8")
