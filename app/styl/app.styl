@@ -14,7 +14,7 @@
   padding 0
   font-size 30px
   text-decoration none
-  body()
+  sans-serif(300)
   line-height 160%
 
 
@@ -69,12 +69,12 @@ body
   box-shadow 0 4px 10px 0 rgba(0, 0, 0, .4), inset 0 0 50px rgba(0, 0, 0, .1)
   border-radius 3px
   margin $margin-offset
-  color $paper-text
+  color $paper-colour
   transform-origin 0 0
 
   ul
     & > li
-      border-left solid .25rem rgba($paper-text, .3)
+      color $paper-colour
 
 h1,
 h2,
@@ -101,7 +101,7 @@ h2
     height 2px
     left 0
     width 100px
-    background $paper-text
+    background $paper-colour
     opacity .3
 
 h3
@@ -176,6 +176,10 @@ img.icon-bg
       flex 1
       text-align center
 
+  .half
+    width 50%
+    float left
+
 .svg-path
   position absolute
   z-index 0
@@ -193,10 +197,14 @@ ol
 
 ul
   & > li
+    // border-left solid .25rem rgba($react-blue, .3)
     padding 8px 0
-    padding-left .5rem
+    padding-left 40px
     margin-bottom 6px
-    border-left solid 6px rgba(255, 255, 255, .3)
+    color $body-colour-alt
+    background url(/images/react-logo.png) no-repeat
+    background-position 0 17px
+    background-size 30px
 
 em
   font-style italic
@@ -226,7 +234,7 @@ for zindex in 0...11
     padding 25px
     background url(/images/retina_wood.png) repeat center center
     overflow hidden
-    color $paper-text
+    color $paper-colour
 
     h4
       margin-top -15px
@@ -244,100 +252,4 @@ for zindex in 0...11
       transform translate(0, 100%)
 
 
-
-/**
- * Layout
- */
-
-#intro
-  position absolute
-  top 50px
-  left 50px
-  width 800px
-  height 600px
-
-  .icon-bg
-    top 100px
-    font-size 11rem
-
-// SVG path containers
-#svg1
-  top 500px
-  left 220px
-
-#svg2
-  top 3970px
-  left 1160px
-  transform rotate(-4deg)
-
-#svg3
-  top 5100px
-  left 2500px
-
-// Part 1
-#slide1
-  top 1100px
-  left 2000px
-
-#slide2
-  top 1800px
-  left 2600px
-
-#slide3
-  top 2650px
-  left 2700px
-
-#slide4
-  top 3330px
-  left 2700px
-
-// Part 2
-#slide5
-  top 5000px
-  left 1000px
-
-#slide6
-  top 5200px
-  left 1800px
-
-#slide7
-  top 5500px
-  left 2500px
-
-#slide8
-  top 6080px
-  left 2000px
-
-#slide9
-  top 5000px
-  left 5000px
-
-#end
-  position absolute
-  top 6500px
-  left 5000px
-  width 800px
-  height 600px
-  padding-left 50px
-
-  .h1
-    body(400)
-    line-height 80%
-
-    &:not(:first-of-type)
-      margin 15px 0
-
-    &:last-of-type
-      margin-bottom 30px
-
-    strong
-      font-weight 700
-      font-family inherit
-
-  .h6
-    font-size 80%
-    margin 0
-
-  .icon-bg
-    top 270px
-    font-size 7rem
+@require '_slides'

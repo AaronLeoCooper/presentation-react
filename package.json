@@ -1,5 +1,5 @@
 {
-  "name": "presentation",
+  "name": "presentation-react",
   "version": "1.0.0",
   "description": "Presentation for 2359media",
   "main": "index.js",
@@ -11,6 +11,9 @@
   "author": "Aaron Leo Cooper",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
@@ -26,82 +29,14 @@
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
-    "orchestrator": "^0.3.7"
+    "orchestrator": "^0.3.7",
+    "run-sequence": "^1.1.5",
+    "webpack": "^1.13.0",
+    "webpack-stream": "^3.1.0"
   },
   "dependencies": {
     "font-awesome": "^4.5.0",
-    "jquery": "^2.2.2"
-  },
-  "jscsConfig": {
-    "requireCurlyBraces": [
-      "if",
-      "else",
-      "for",
-      "while",
-      "do",
-      "try",
-      "catch"
-    ],
-    "requireSpaceAfterKeywords": [
-      "if",
-      "else",
-      "for",
-      "while",
-      "do",
-      "switch",
-      "case",
-      "return",
-      "try",
-      "catch",
-      "function",
-      "typeof"
-    ],
-    "requireSpaceBeforeBlockStatements": true,
-    "requireParenthesesAroundIIFE": true,
-    "requireSpacesInConditionalExpression": true,
-    "disallowSpacesInNamedFunctionExpression": {
-      "beforeOpeningRoundBrace": true
-    },
-    "disallowSpacesInFunctionDeclaration": {
-      "beforeOpeningRoundBrace": true
-    },
-    "requireSpaceBetweenArguments": true,
-    "disallowMultipleVarDecl": true,
-    "requireVarDeclFirst": true,
-    "requireBlocksOnNewline": true,
-    "disallowEmptyBlocks": true,
-    "disallowSpacesInsideArrayBrackets": true,
-    "disallowSpacesInsideParentheses": true,
-    "disallowDanglingUnderscores": true,
-    "requireCommaBeforeLineBreak": true,
-    "disallowSpaceAfterPrefixUnaryOperators": true,
-    "disallowSpaceBeforePostfixUnaryOperators": true,
-    "disallowSpaceBeforeBinaryOperators": [
-      ","
-    ],
-    "requireSpacesInForStatement": true,
-    "requireSpacesInAnonymousFunctionExpression": {
-      "beforeOpeningRoundBrace": true,
-      "beforeOpeningCurlyBrace": true
-    },
-    "requireSpaceBeforeBinaryOperators": true,
-    "requireSpaceAfterBinaryOperators": true,
-    "disallowKeywords": [
-      "with",
-      "continue"
-    ],
-    "validateIndentation": 2,
-    "disallowMixedSpacesAndTabs": true,
-    "disallowTrailingWhitespace": true,
-    "disallowTrailingComma": true,
-    "disallowKeywordsOnNewLine": [
-      "else"
-    ],
-    "requireLineFeedAtFileEnd": true,
-    "requireCapitalizedConstructors": true,
-    "requireDotNotation": true,
-    "disallowNewlineBeforeBlockStatements": true,
-    "disallowMultipleLineStrings": true,
-    "requireSpaceBeforeObjectValues": true
+    "jquery": "^2.2.2",
+    "lodash": "^4.11.1"
   }
 }
