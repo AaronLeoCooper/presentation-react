@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import _ from 'jquery';
+import _ from 'underscore';
 
 const defaultconfig = {
   positioning: 'stacked'
@@ -25,10 +25,10 @@ const popoverActiveClass = 'displaying';
  * Main slide init
  */
 let Slideshow = function (conf) {
-  var self = this;
+  let self = this;
 
   conf = conf || {};
-  
+  self.conf = _.extend(defaultconfig, conf);
 
   self.slide = 0;
   self.popover = -1; // -1 means not currently displaying popover
@@ -39,15 +39,39 @@ let Slideshow = function (conf) {
   self.popoverRefs = {};
   self.slidePopovers = {};
 
-  // Build up initial slide data
+  if (self.conf.positioning === 'stacked') {
+    self.setPositions();
+  }
+
+  // Build initial slides/popover settings
+  self.init();
+
+};
+
+/**
+ * Set initial slide and popover data
+ * @method init
+ */
+Slideshow.prototype.init = function () {
+  let self = this;
+  let wHeight = W.height();
+
   self.$slides.each(function () {
-    var $s = $(this);
-    var sNum = $s.attr(slideAttr);
-    var newRotation;
-    var newTransRotate;
-    var adjustTop = 0;
-    var adjustLeft = 0;
-    var positionOffset = 40;
+    let $s = $(this);
+    let sNum = $s.attr(slideAttr);
+    let newTop;
+    let newRotation;
+    let newTransRotate;
+    let adjustTop = 0;
+    let adjustLeft = 0;
+    let positionOffset = 40;
+
+    if (sNum !== '0' && self.conf.positioning === 'stacked') {
+      newTop = wHeight * sNum;
+      $s.css({
+        top: newTop
+      });
+    }
 
     // Init the slide data object
     self.slideRefs[sNum] = {};
@@ -98,9 +122,9 @@ let Slideshow = function (conf) {
 
   // Build up initial popover data
   self.$popovers.each(function () {
-    var $p = $(this);
-    var pNum = $p.attr(slideAttr);
-    var pNumArr = pNum.split(popoverDelim);
+    let $p = $(this);
+    let pNum = $p.attr(slideAttr);
+    let pNumArr = pNum.split(popoverDelim);
 
     // Store the popover element in the popover reference (slide/order)
     self.popoverRefs[pNum] = self.getPopover(pNumArr[0], pNumArr[1]);
