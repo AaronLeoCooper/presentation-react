@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp --type=production build",
+    "build": "gulp build --type production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aaron Leo Cooper",

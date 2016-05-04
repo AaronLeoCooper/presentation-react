@@ -25,10 +25,37 @@ $easeOutBack = cubic-bezier(.470, .005, .320, 1.275)
 $easeInOut = ease-in-out
 $easeOut = ease-out
 
+$slide-transition = transform 1s $easeInOut
+
 $body-colour = $react-blue
 $body-colour-alt = #fff
-$paper-bg = #f1f1f1
 
-$paper-colour = $react-grey-lt
-$paper-colour-alt = $react-red
+// $paper-bg = #f1f1f1
+$paper-bg = transparent
+  // $paper-colour = $react-grey-lt
+$paper-colour = #f1f1f1
+$paper-colour-alt = $react-red-lt
+
 $bullet-colour = $react-blue
+
+body-heading-border()
+  &:after
+    content ''
+    position absolute
+    top 100%
+    height 2px
+    left 0
+    width 100px
+    background $react-red
+    opacity .3
+
+paper-heading-border()
+  &:after
+    content ''
+    position absolute
+    top 100%
+    height 2px
+    left 0
+    width 100px
+    background $react-red
+    opacity 1

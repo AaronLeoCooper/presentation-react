@@ -2,12 +2,32 @@
  * Slides
  */
 
+.slide
+  position absolute
+  width 800px
+  height 600px
+  // padding 50px
+  background-color $paper-bg
+  // background-image url(/images/noise.png)
+  // box-shadow 0 4px 10px 0 rgba(0, 0, 0, .4), inset 0 0 50px rgba(0, 0, 0, .1)
+  border-radius 3px
+  // margin $margin-offset
+  color $paper-colour
+  transform-origin 0 0
+
+  ul
+    & > li
+      color $paper-colour
+
+.pres-slide
+  padding 50px
+  width 100%
 
 #intro
   position absolute
-  top 50px
-  left 50px
-  width 800px
+  // top 50px
+  // left 50px
+  // width 100%
   height 600px
 
   .icon-bg
@@ -15,7 +35,8 @@
     font-size 11rem
 
 #end
-  // position absolute
+  position absolute
+  left 40px
   // top 6500px
   // left 5000px
   // width 800px
@@ -49,12 +70,12 @@
 // #svg1
 //   top 500px
 //   left 220px
-//
+
 // #svg2
 //   top 3970px
 //   left 1160px
 //   transform rotate(-4deg)
-//
+
 // #svg3
 //   top 5100px
 //   left 2500px

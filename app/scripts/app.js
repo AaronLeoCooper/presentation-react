@@ -51,8 +51,10 @@ $(document).ready(function () {
   $(document).keydown(function (e) {
     // Keypress event listener for slides
     if (pressed.next(e.which)) {
+      console.log('hit next');
       slideshow.next();
     } else if (pressed.prev(e.which)) {
+      console.log('hit prev');
       slideshow.prev();
     } else if (e.altKey) { // Alt key modifier
       if (e.which === 38) { // Keypress for zoom in
@@ -61,6 +63,8 @@ $(document).ready(function () {
         zoomHTML('out');
       } else if (numKeys.indexOf(e.which) > -1) {
         slideshow.changeSlide(numKeys.indexOf(e.which));
+      } else if (e.which === 83) {
+        console.log(slideshow);
       }
     }
   });

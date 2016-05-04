@@ -39,13 +39,8 @@ let Slideshow = function (conf) {
   self.popoverRefs = {};
   self.slidePopovers = {};
 
-  if (self.conf.positioning === 'stacked') {
-    self.setPositions();
-  }
-
   // Build initial slides/popover settings
   self.init();
-
 };
 
 /**
@@ -54,21 +49,22 @@ let Slideshow = function (conf) {
  */
 Slideshow.prototype.init = function () {
   let self = this;
-  let wHeight = W.height();
+  let wHeight = $(W).height();
 
   self.$slides.each(function () {
     let $s = $(this);
     let sNum = $s.attr(slideAttr);
     let newTop;
-    let newRotation;
+    let newRotation = 0;
     let newTransRotate;
     let adjustTop = 0;
     let adjustLeft = 0;
-    let positionOffset = 40;
+    let positionOffset = 0;
 
     if (sNum !== '0' && self.conf.positioning === 'stacked') {
       newTop = wHeight * sNum;
       $s.css({
+        position: 'absolute',
         top: newTop
       });
     }
@@ -82,7 +78,7 @@ Slideshow.prototype.init = function () {
       self.slideRefs[sNum].part = 0;
     } else { // Any slide except the first
       // Rotation
-      newRotation = $s.attr('data-rotate');
+      newRotation = parseInt($s.attr('data-rotate')) || 0;
       self.slideRefs[sNum].rotation = parseInt(newRotation);
 
       // If negative rotation, adjust the position
@@ -91,7 +87,7 @@ Slideshow.prototype.init = function () {
         adjustTop = (positionOffset * -1);
       } else {
         adjustLeft = (positionOffset * -1);
-        adjustTop = (100 - positionOffset) * -1;
+        adjustTop = (positionOffset) * -1;
       }
 
       // Position
@@ -141,6 +137,8 @@ Slideshow.prototype.init = function () {
 Slideshow.prototype.next = function () {
   var self = this;
   var popoverSearchNext = self.slide + popoverDelim + (self.popover + 1);
+
+  console.log('prototype.next()');
 
   if (self.popoverRefs.hasOwnProperty(popoverSearchNext)) { // Next popover exists
     self.changePopover(popoverSearchNext);
@@ -231,7 +229,7 @@ Slideshow.prototype.changeSlide = function (newSlide) {
   var $currentPopover;
 
   // Only change if not currently changing & if slide is valid
-  if (!self.changingSlide && self.slideRefs.hasOwnProperty(newSlide.toString())) {
+  if (self.slideRefs.hasOwnProperty(newSlide.toString())) {
 
     // Popover currently displaying, hide it before proceeding
     if (self.popover > -1) {
@@ -273,6 +271,8 @@ Slideshow.prototype.changeSlide = function (newSlide) {
 
     newTranslate = 'translate(-' + slidePos[0] + 'px, -' + slidePos[1] + 'px)';
 
+    console.log('continueSlide() newTranslate ($m)', newTranslate);
+
     $m.css({
       msTransform: newTranslate,
       webkitTransform: newTranslate,
@@ -298,6 +298,9 @@ Slideshow.prototype.changeSlide = function (newSlide) {
 
     // When transition complete, reset changingSlide
     $m.one(transitionEnd, function () {
+      console.log('css transition ended');
+      console.log('isPrev (we hit previous)', isPrev);
+      console.log('self.slidePopovers[newSlide].length > 0 (there\'s popovers)', self.slidePopovers[newSlide].length > 0);
       // Previous slide and a popover needs to display
       if (isPrev && self.slidePopovers[newSlide].length > 0) {
         // Retrieve the last (numerically) popover for this slide
