@@ -22,6 +22,27 @@
 .pres-slide
   padding 50px
   width 100%
+  opacity 0
+  transition opacity .5s
+
+  &.hero
+    text-align center
+
+    p.h1
+      sans-serif(400)
+      color $react-blue
+      position absolute
+      left 0
+      right 0
+      margin 0
+      font-size 90px
+      top 50%
+      transform translateY(-50%)
+
+#main-cont
+  &.loaded
+    .pres-slide
+      opacity 1
 
 #intro
   position absolute
@@ -36,7 +57,8 @@
 
 #end
   position absolute
-  left 40px
+  left 0
+  padding-top 90px
   // top 6500px
   // left 5000px
   // width 800px
@@ -44,7 +66,8 @@
   // padding-left 50px
 
   .h1
-    body(400)
+    color $react-blue
+    // body(400)
     line-height 80%
 
     &:not(:first-of-type)
@@ -53,29 +76,19 @@
     &:last-of-type
       margin-bottom 30px
 
+    em
+      color $paper-colour
+
     strong
+      color $paper-colour
       font-weight 700
       font-family inherit
 
   .h6
+    color $paper-colour
     font-size 80%
     margin 0
 
   .icon-bg
-    top 270px
+    top 370px
     font-size 7rem
-
-
-// SVG path containers
-// #svg1
-//   top 500px
-//   left 220px
-
-// #svg2
-//   top 3970px
-//   left 1160px
-//   transform rotate(-4deg)
-
-// #svg3
-//   top 5100px
-//   left 2500px

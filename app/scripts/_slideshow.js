@@ -2,7 +2,8 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 const defaultconfig = {
-  positioning: 'stacked'
+  positioning: 'stacked',
+  autoSlideNumers: true
 };
 
 /**
@@ -32,8 +33,8 @@ let Slideshow = function (conf) {
 
   self.slide = 0;
   self.popover = -1; // -1 means not currently displaying popover
-  self.$slides = $(slideSelector + '[' + slideAttr + ']');
-  self.$popovers = $(popoverSelector + '[' + slideAttr + ']');
+  self.$slides = $(slideSelector);
+  self.$popovers = $(popoverSelector);
   self.changingSlide = false;
   self.slideRefs = {};
   self.popoverRefs = {};
@@ -50,16 +51,23 @@ let Slideshow = function (conf) {
 Slideshow.prototype.init = function () {
   let self = this;
   let wHeight = $(W).height();
+  let slideCount = 0;
 
   self.$slides.each(function () {
     let $s = $(this);
-    let sNum = $s.attr(slideAttr);
+    let sNum;
     let newTop;
     let newRotation = 0;
     let newTransRotate;
     let adjustTop = 0;
     let adjustLeft = 0;
     let positionOffset = 0;
+
+    if (self.conf.autoSlideNumers) {
+      sNum = slideCount;
+    } else {
+      $s.attr(slideAttr, sNum);
+    }
 
     if (sNum !== '0' && self.conf.positioning === 'stacked') {
       newTop = wHeight * sNum;
@@ -114,6 +122,8 @@ Slideshow.prototype.init = function () {
 
     // Init the slide popover key for this slide
     self.slidePopovers[sNum] = [];
+
+    slideCount += 1;
   });
 
   // Build up initial popover data
@@ -128,6 +138,15 @@ Slideshow.prototype.init = function () {
     // Store all slide refs with popover refs in array
     self.slidePopovers[pNumArr[0]].push(parseInt(pNumArr[1]));
   });
+
+  $M.addClass('loaded');
+
+  // let developSlide = 3;
+  // if (typeof developSlide !== 'undefined') {
+  //   self.changeSlide(developSlide);
+  // }
+
+
 };
 
 /**

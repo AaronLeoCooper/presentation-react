@@ -56,16 +56,14 @@ $(document).ready(function () {
     } else if (pressed.prev(e.which)) {
       console.log('hit prev');
       slideshow.prev();
-    } else if (e.altKey) { // Alt key modifier
-      if (e.which === 38) { // Keypress for zoom in
-        zoomHTML('in');
-      } else if (e.which === 40) { // Keypress for zoom out
-        zoomHTML('out');
-      } else if (numKeys.indexOf(e.which) > -1) {
-        slideshow.changeSlide(numKeys.indexOf(e.which));
-      } else if (e.which === 83) {
-        console.log(slideshow);
-      }
+    } else if (e.which === 38) { // Keypress for zoom in
+      zoomHTML('in');
+    } else if (e.which === 40) { // Keypress for zoom out
+      zoomHTML('out');
+    } else if (numKeys.indexOf(e.which) > -1) {
+      slideshow.changeSlide(numKeys.indexOf(e.which));
+    } else if (e.which === 83) {
+      console.log(slideshow);
     }
   });
 

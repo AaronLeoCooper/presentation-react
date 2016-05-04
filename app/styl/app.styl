@@ -12,10 +12,14 @@
   outline 0
   margin 0
   padding 0
-  font-size 30px
+  font-size 34px
   text-decoration none
   sans-serif(300)
   line-height 160%
+
+.sm
+  font-size 75%
+  line-height 20px
 
 
 
@@ -69,7 +73,8 @@ h6
   margin 0
 
 h1
-  font-size 2rem
+  sans-serif(400)
+  font-size 3rem
   line-height 200%
 
 h2
@@ -83,6 +88,9 @@ h3
 
 h4
   font-size 1.3rem
+
+h5
+  color $paper-colour
 
 .h1
   @extend h1
@@ -152,13 +160,39 @@ img.icon-bg
       text-align center
 
   .half
+    position relative
     width 50%
     float left
-    // padding-left 20px
-    padding-right 20px
 
-    h3
-      // text-align center
+  &.centralise
+    .half
+      &:first-of-type
+        text-align right
+
+      &:last-of-type
+        text-align left
+
+  &.steps-h
+    text-align center
+
+    & > *
+      display inline-block
+      vertical-align middle
+
+    .stacked
+      .fa
+        // color $react-blue
+
+      & > *
+        display block
+
+    .arrow-icon
+      // color $react-blue
+      font-size 60px
+      margin 0 20px
+
+    .peace-icon
+      font-size 100px
 
 .svg-path
   position absolute
@@ -177,19 +211,37 @@ ol
 
 ul
   & > li
-    // border-left solid .25rem rgba($react-blue, .3)
     padding 8px 0
-    padding-left 40px
-    margin-bottom 6px
+    padding-left 50px
+    margin-bottom 12px
     color $body-colour-alt
     background url(/images/react-logo.png) no-repeat
-    background-position 0 17px
+    background-position 0 19px
     background-size 30px
 
   &.list-angular > li
     background url('/images/angular.png') no-repeat
-    background-position 0 16px
-    background-size 28px
+    background-position 0 17px
+    background-size 27px
+
+  &.list-es5 > li
+    background url('/images/js-logo.png') no-repeat
+    background-position 0 17px
+    background-size 27px
+
+  &.list-es6 > li
+    background url('/images/babel.png') no-repeat
+    background-position -6px 25px
+    background-size 40px
+
+  & > ul
+    padding-left 50px
+
+    & > li
+      margin-top -20px
+      background url(/images/react-logo.png) no-repeat
+      background-position 10px 24px
+      background-size 20px
 
 em
   font-style italic
@@ -236,5 +288,17 @@ for zindex in 0...11
       box-shadow 0 5px 17px 0 rgba(0, 0, 0, .5)
       transform translate(0, 100%)
 
+.vendor-logo
+  max-height 150px
+
+.center
+  text-align center
+
+.react-blue
+  color $react-blue
+
+.code
+  white-space pre-wrap
+  font-family 'Ubuntu Mono'
 
 @require '_slides'
