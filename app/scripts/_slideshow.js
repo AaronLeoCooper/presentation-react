@@ -157,8 +157,6 @@ Slideshow.prototype.next = function () {
   var self = this;
   var popoverSearchNext = self.slide + popoverDelim + (self.popover + 1);
 
-  console.log('prototype.next()');
-
   if (self.popoverRefs.hasOwnProperty(popoverSearchNext)) { // Next popover exists
     self.changePopover(popoverSearchNext);
   } else { // No popovers left, proceed to next slide
@@ -290,8 +288,6 @@ Slideshow.prototype.changeSlide = function (newSlide) {
 
     newTranslate = 'translate(-' + slidePos[0] + 'px, -' + slidePos[1] + 'px)';
 
-    console.log('continueSlide() newTranslate ($m)', newTranslate);
-
     $m.css({
       msTransform: newTranslate,
       webkitTransform: newTranslate,
@@ -317,9 +313,6 @@ Slideshow.prototype.changeSlide = function (newSlide) {
 
     // When transition complete, reset changingSlide
     $m.one(transitionEnd, function () {
-      console.log('css transition ended');
-      console.log('isPrev (we hit previous)', isPrev);
-      console.log('self.slidePopovers[newSlide].length > 0 (there\'s popovers)', self.slidePopovers[newSlide].length > 0);
       // Previous slide and a popover needs to display
       if (isPrev && self.slidePopovers[newSlide].length > 0) {
         // Retrieve the last (numerically) popover for this slide

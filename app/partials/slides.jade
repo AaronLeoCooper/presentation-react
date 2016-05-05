@@ -12,21 +12,12 @@
 .pres-slide.slide
 	i.icon-bg.fa.fa-television
 	.box
-		h2 A bit about “Front-end”
+		h2 A bit about “Front-end” dev
 		ul
 			li The UI and UX practices move incredibly fast
-			li Like the fashion industry it's all about trends
-
-
-.pres-slide.slide
-	i.icon-bg.fa.fa-facebook-official
-	.box
-		h2 A brief introduction
-		ul
-			li React is a front-end library created by Facebook
-			li Helps in developing responsive web-apps that are easy to maintain
-			li Uses a bespoke templating language (#[strong JSX])
-			li In their words: #[em “The V in MVC”]
+			li It's all the about trends
+			li Javascript wasn't designed to do what it does today, but it's all we've got
+			li The Document Object Model (or DOM) in the browser is #[strong SLOW]
 
 
 .pres-slide.slide
@@ -34,12 +25,9 @@
 	.box
 		h2 Why React?
 		ul
-			li Promotes good coding practices for easy maintainability
-			li It's VERY fast at updating the view
-			ul
-				li Creates virtual copy of DOM & batches updates
-				li Only updates the parts of the DOM that changed
-			li One-way data binding
+			li “Virtual DOM” & intelligent DOM updating
+			li VERY fast at responding to user input
+			li Helps keep code much cleaner, much more maintainable
 			li JSX templates
 
 
@@ -50,7 +38,7 @@
 .pres-slide.slide
 	i.icon-bg.fa.fa-terminal
 	.box
-		h2 Choose Javascript flavour
+		h2 Choose a Javascript flavour
 	.box
 		.half
 			h3 ES5
@@ -59,7 +47,7 @@
 				li Minimal setup#[span.react-blue *]
 			em(style="display: inline-block; padding-top: 30px; padding-right: 20px; font-size: 24px;") #[span.react-blue *] Although you really can't excape using extra modules with React
 		.half
-			h3 ES6 a.k.a ES2015
+			h3 ES6
 			ul.list-es6
 				li Works extremely well with React
 				li Documentation heading towards ES6
@@ -104,15 +92,63 @@
 .pres-slide.slide
 	i.icon-bg.fa.fa-terminal
 	.box
-		h2 A very basic app
+		h2 JSX
+	.box
+		.half.center
+			//- .jsx-example(style="background: url(images/code/home.jsx.png) no-repeat 0px -100px; background-size: 140%; width: 95%; height: 500px;")
+			img(src="images/code/jsx.png")
+		.half
+			ul
+				li It's just Javascript #[em (seriously, even the HTML tags)]
+				li Helps us clearly identify what will be rendered
+				li No more HTML to JS converstions! :D
 
+
+.pres-slide.slide
+	i.icon-bg.fa.fa-terminal
+	.box
+		h2 (Very) Basic app structure
+	.box.vert-top.centralise
+		.img-cont
+			p(style="font-size: 20px") main.js
+			img.img-code(src="images/code/main.js.png" style="width: 350px")
+		.img-cont
+			p(style="font-size: 20px") app.jsx
+			img.img-code(src="images/code/app.jsx.png" style="width: 180px")
+		.img-cont
+			p(style="font-size: 20px") home.jsx
+			img.img-code(src="images/code/home.jsx.png" style="width: 430px")
+
+
+.pres-slide.slide
+	i.icon-bg.fa.fa-exclamation-triangle.react-red
+	.box
+		h2 React “gotchas” to watch out for
+		ul
+			li JSX #[strong isn’t] HTML!
+			li Avoid jQuery and any non-React DOM manipulation
+			li #[strong Definitely definitely] use an ES6 code linter (e.g. ESLint)
+			li Keep components small & non-specific as possible
+			li Remember to use production-ready build settings before launching!
+
+
+.pres-slide.slide
+	i.icon-bg.fa.fa-heart.react-red
+	.box
+		h2 Final thoughts
+		ul
+			li Once you're comfortable with React, look up Pure React Components (stateless)
+			li The decision fatigue is high, the learning curve isn't
+			li Check out the non-official React framework: #[strong Redux]
+			li  is a great replacement for jQuery ajax
 
 
 #end.pres-slide
 	i.icon-bg.fa.fa-send
 	.box
-		p.h1 Go create stuff!
-		//- p React, Webpack, ES6 boilerplate: github.com/AaronLeoCooper/react-webpack-es6
-		p.h1 <em>“Every creator painfully experiences the chasm between their inner vision and its ultimate expression.”</em>
-		h5 
-			| &nbsp;&nbsp;&nbsp; - Isaac Bashevis Singer
+		h3 Haven't tried React yet?
+		p.h1 Get to it!
+
+		//- p.h1 <em>“Every creator painfully experiences the chasm between their inner vision and its ultimate expression.”</em>
+		//- h5 
+		//- 	| &nbsp;&nbsp;&nbsp; - Isaac Bashevis Singer

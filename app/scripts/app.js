@@ -51,10 +51,8 @@ $(document).ready(function () {
   $(document).keydown(function (e) {
     // Keypress event listener for slides
     if (pressed.next(e.which)) {
-      console.log('hit next');
       slideshow.next();
     } else if (pressed.prev(e.which)) {
-      console.log('hit prev');
       slideshow.prev();
     } else if (e.which === 38) { // Keypress for zoom in
       zoomHTML('in');
